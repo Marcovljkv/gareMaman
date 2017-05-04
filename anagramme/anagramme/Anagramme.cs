@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ *Ramushi Ardi
+ *04.05.2017
+ *Version : 1.0
+ *Jeu d'anagramme, l'utilisateur doit reformer le mot dont les lettres on étées melangées.
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +15,7 @@ namespace anagramme
 {
     class Anagramme
     {
+        //Déclaration des atributs
         List<string> _listMots;
         string _reponse;
         int _nombreReponseJuste;
@@ -16,6 +23,7 @@ namespace anagramme
         string _question;
         int _questionNumero;
 
+        //Getter-Setter
         public List<string> ListMots
         {
             get { return _listMots; }
@@ -52,17 +60,20 @@ namespace anagramme
             set { _reponse = value; }
         }
 
+        //Constructeur
         public Anagramme()
         {
 
 
         }
 
+        //Constructeur avec un paramètre
         public Anagramme(string unMot)
         {
 
         }
 
+        //Charge la liste des mots
         void ChargeListeMots()
         {
             ListMots = new List<string>();
@@ -72,17 +83,21 @@ namespace anagramme
             }
         }
 
+
+        //Choisi un mot alèatoirement
         void ChoixDunMot()
         {
             Random rdm = new Random();
             Reponse = ListMots[rdm.Next(0, ListMots.Count)];
         }
 
+        //Vérifie si la réponse de l'utilisateur est juste
         bool isReponseOK()
         {
             return Reponse == PropositionUtilisateur;
         }
 
+        //Mélange le mot
         string MelangeMot(string unMot)
         {
             return "";
