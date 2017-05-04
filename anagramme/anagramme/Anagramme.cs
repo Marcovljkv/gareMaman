@@ -62,7 +62,8 @@ namespace anagramme
 
         }
 
-        void ChargeListeMots(){
+        void ChargeListeMots()
+        {
             ListMots = new List<string>();
             foreach (string animal in File.ReadAllLines(@"..\..\Resources\animaux.txt"))
             {
@@ -72,12 +73,13 @@ namespace anagramme
 
         void ChoixDunMot()
         {
-
+            Random rdm = new Random();
+            Reponse = rdm.Next(0, ListMots.length);
         }
 
         bool isReponseOK()
         {
-            return true;
+            return Reponse == PropositionUtilisateur;
         }
 
         string MelangeMot(string unMot)
