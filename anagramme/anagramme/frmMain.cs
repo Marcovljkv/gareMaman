@@ -20,7 +20,7 @@ namespace anagramme
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-           
+            File.ReadAllLines("");
         }
     }
 }

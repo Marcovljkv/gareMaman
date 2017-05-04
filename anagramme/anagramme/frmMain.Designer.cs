@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.gbxQuestion = new System.Windows.Forms.GroupBox();
             this.lblQuestion = new System.Windows.Forms.Label();
             this.lblReponse = new System.Windows.Forms.Label();
@@ -73,7 +74,7 @@
             this.Réponse.Size = new System.Drawing.Size(1023, 118);
             this.Réponse.TabIndex = 2;
             this.Réponse.TabStop = false;
-            this.Réponse.Text = "Question";
+            this.Réponse.Text = "Réponse";
             // 
             // btnNouvellePartie
             // 
@@ -90,7 +91,7 @@
             this.btnReponse.Name = "btnReponse";
             this.btnReponse.Size = new System.Drawing.Size(186, 48);
             this.btnReponse.TabIndex = 5;
-            this.btnReponse.Text = "Afficher réponse";
+            this.btnReponse.Text = "Afficher la réponse";
             this.btnReponse.UseVisualStyleBackColor = true;
             // 
             // btnSuivant
@@ -138,8 +139,9 @@
             this.Controls.Add(this.Réponse);
             this.Controls.Add(this.lblQuestion);
             this.Controls.Add(this.gbxQuestion);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMain";
-            this.Text = "Form1";
+            this.Text = "Anagrammes";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
