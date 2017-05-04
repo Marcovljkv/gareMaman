@@ -139,7 +139,9 @@
             this.Controls.Add(this.Réponse);
             this.Controls.Add(this.lblQuestion);
             this.Controls.Add(this.gbxQuestion);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmMain";
             this.Text = "Anagrammes";
             this.Load += new System.EventHandler(this.frmMain_Load);
