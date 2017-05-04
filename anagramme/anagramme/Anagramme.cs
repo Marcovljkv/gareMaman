@@ -100,7 +100,25 @@ namespace anagramme
         //Mélange le mot
         string MelangeMot(string unMot)
         {
-            return "";
+            //  Initialisation
+            char[] chars = new char[unMot.Length];
+            Random rdm = new Random();
+            int index = 0;
+
+            //  Traitement
+            while (unMot.Length > 0)
+            { 
+                // On choisi une lettre parmi les lettres restantes (int)
+                int next = rdm.Next(0, unMot.Length - 1); 
+                //  On rajoute la lettre a notre tableau
+                chars[index] = unMot[next];
+                //  On supprime la lettre du mot originale
+                unMot = unMot.Substring(0, next) + unMot.Substring(next + 1);
+
+                ++index;
+            }
+            //  Retourne le tableau converti en string
+            return new String(chars);
         }
     }
 }
