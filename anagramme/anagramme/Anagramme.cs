@@ -15,7 +15,7 @@ namespace anagramme
 {
     class Anagramme
     {
-        //Déclaration des atributs
+        //  Déclaration des atributs
         List<string> _listMots;
         string _reponse;
         int _nombreReponseJuste;
@@ -23,7 +23,7 @@ namespace anagramme
         string _question;
         int _questionNumero;
 
-        //Getter-Setter
+        //  Getter-Setter
         public List<string> ListMots
         {
             get { return _listMots; }
@@ -60,20 +60,20 @@ namespace anagramme
             set { _reponse = value; }
         }
 
-        //Constructeur
+        //  Constructeur
         public Anagramme()
         {
 
 
         }
 
-        //Constructeur avec un paramètre
+        //  Constructeur avec un paramètre
         public Anagramme(string unMot)
         {
 
         }
 
-        //Charge la liste des mots
+        //  Charge la liste des mots
         void ChargeListeMots()
         {
             ListMots = new List<string>();
@@ -84,20 +84,20 @@ namespace anagramme
         }
 
 
-        //Choisi un mot alèatoirement
+        //  Choisi un mot alèatoirement
         void ChoixDunMot()
         {
             Random rdm = new Random();
             Reponse = ListMots[rdm.Next(0, ListMots.Count)];
         }
 
-        //Vérifie si la réponse de l'utilisateur est juste
+        //  Vérifie si la réponse de l'utilisateur est juste
         bool isReponseOK()
         {
             return Reponse == PropositionUtilisateur;
         }
 
-        //Mélange le mot
+        //  Mélange le mot
         string MelangeMot(string unMot)
         {
             //  Initialisation
@@ -107,9 +107,9 @@ namespace anagramme
 
             //  Traitement
             while (unMot.Length > 0)
-            { 
+            {
                 // On choisi une lettre parmi les lettres restantes (int)
-                int next = rdm.Next(0, unMot.Length - 1); 
+                int next = rdm.Next(0, unMot.Length - 1);
                 //  On rajoute la lettre a notre tableau
                 chars[index] = unMot[next];
                 //  On supprime la lettre du mot originale
