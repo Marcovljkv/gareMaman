@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace anagramme
 {
@@ -74,7 +75,7 @@ namespace anagramme
         void ChoixDunMot()
         {
             Random rdm = new Random();
-            Reponse = rdm.Next(0, ListMots.length);
+            Reponse = ListMots[rdm.Next(0, ListMots.Count)];
         }
 
         bool isReponseOK()
