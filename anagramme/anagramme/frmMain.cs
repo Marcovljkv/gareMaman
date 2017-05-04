@@ -13,6 +13,7 @@ namespace anagramme
 {
     public partial class frmMain : Form
     {
+        Anagramme ana;
         public frmMain()
         {
             InitializeComponent();
@@ -20,7 +21,13 @@ namespace anagramme
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            File.ReadAllLines("");
+            ana = new Anagramme();
+            DessineLesBoutons(ana.MelangeMot("ANAGRAMME"));
+        }
+
+        public void DessineLesBoutons(string mot)
+        {
+
         }
 
         private void btnNouvellePartie_Click(object sender, EventArgs e)

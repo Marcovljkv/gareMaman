@@ -63,18 +63,12 @@ namespace anagramme
         //  Constructeur
         public Anagramme()
         {
-
-
+            ChargeListeMots();
+            ChoixDunMot();
         }
 
         //  Constructeur avec un paramètre
-        public Anagramme(string unMot)
-        {
-
-        }
-
         //  Charge la liste des mots
-        void ChargeListeMots()
         {
             ListMots = new List<string>();
             foreach (string animal in File.ReadAllLines(@"..\..\Resources\animaux.txt"))
@@ -83,22 +77,18 @@ namespace anagramme
             }
         }
 
-
         //  Choisi un mot alèatoirement
-        void ChoixDunMot()
         {
             Random rdm = new Random();
             Reponse = ListMots[rdm.Next(0, ListMots.Count)];
         }
 
         //  Vérifie si la réponse de l'utilisateur est juste
-        bool isReponseOK()
         {
             return Reponse == PropositionUtilisateur;
         }
 
         //  Mélange le mot
-        string MelangeMot(string unMot)
         {
             //  Initialisation
             char[] chars = new char[unMot.Length];
