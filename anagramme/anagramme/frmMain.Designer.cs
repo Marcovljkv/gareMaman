@@ -1,6 +1,6 @@
 ﻿namespace anagramme
 {
-    partial class Form1
+    partial class frmMain
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -33,21 +33,22 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Location = new System.Drawing.Point(34, 41);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 100);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // Form1
+            // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1047, 463);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Form1";
+            this.Name = "frmMain";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.ResumeLayout(false);
 
         }
