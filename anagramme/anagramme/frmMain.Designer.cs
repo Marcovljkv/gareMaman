@@ -84,6 +84,7 @@
             this.btnNouvellePartie.TabIndex = 4;
             this.btnNouvellePartie.Text = "Nouvelle partie";
             this.btnNouvellePartie.UseVisualStyleBackColor = true;
+            this.btnNouvellePartie.Click += new System.EventHandler(this.btnNouvellePartie_Click);
             // 
             // btnReponse
             // 
@@ -93,6 +94,7 @@
             this.btnReponse.TabIndex = 5;
             this.btnReponse.Text = "Afficher la réponse";
             this.btnReponse.UseVisualStyleBackColor = true;
+            this.btnReponse.Click += new System.EventHandler(this.btnReponse_Click);
             // 
             // btnSuivant
             // 
@@ -102,6 +104,7 @@
             this.btnSuivant.TabIndex = 6;
             this.btnSuivant.Text = "Question suivante";
             this.btnSuivant.UseVisualStyleBackColor = true;
+            this.btnSuivant.Click += new System.EventHandler(this.btnSuivant_Click);
             // 
             // btnAnnuler
             // 
@@ -111,6 +114,7 @@
             this.btnAnnuler.TabIndex = 7;
             this.btnAnnuler.Text = "Annule le dernier click";
             this.btnAnnuler.UseVisualStyleBackColor = true;
+            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
             // lblInfo
             // 

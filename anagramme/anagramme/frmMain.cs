@@ -22,5 +22,25 @@ namespace anagramme
         {
             File.ReadAllLines("");
         }
+
+        private void btnNouvellePartie_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnReponse_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSuivant_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAnnuler_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
