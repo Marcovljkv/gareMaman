@@ -20,7 +20,13 @@ namespace anagramme
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            File.ReadAllLines("");
+            List<string> animaux = new List<string>();
+
+            foreach (string animal in File.ReadAllLines(@"..\..\Resources\animaux.txt"))
+            {
+                animaux.Add(animal);
+                Console.WriteLine(animal);
+            }
         }
     }
 }
