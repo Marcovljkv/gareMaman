@@ -62,8 +62,12 @@ namespace anagramme
 
         }
 
-        void ChareListeMots(){
-
+        void ChargeListeMots(){
+            ListMots = new List<string>();
+            foreach (string animal in File.ReadAllLines(@"..\..\Resources\animaux.txt"))
+            {
+                ListMots.Add(animal);
+            }
         }
 
         void ChoixDunMot()
