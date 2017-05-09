@@ -67,9 +67,19 @@ namespace anagramme
             ChoixDunMot();
         }
 
+<<<<<<< HEAD
         //  Constructeur avec un paramètre
+        public Anagramme(string unMot)
+        {
+
+        }
+
         //  Charge la liste des mots
-        public void ChargeListeMots()
+        void ChargeListeMots()
+=======
+        //Constructeur avec un paramètre
+        //Charge la liste des mots
+>>>>>>> Debut de la génération des bouttons
         {
             ListMots = new List<string>();
             foreach (string animal in File.ReadAllLines(@"..\..\Resources\animaux.txt"))
@@ -78,21 +88,34 @@ namespace anagramme
             }
         }
 
+<<<<<<< HEAD
+
         //  Choisi un mot alèatoirement
-        public void ChoixDunMot()
+        void ChoixDunMot()
+=======
+        //Choisi un mot alèatoirement
+>>>>>>> Debut de la génération des bouttons
         {
             Random rdm = new Random();
             Reponse = ListMots[rdm.Next(0, ListMots.Count)];
         }
 
+<<<<<<< HEAD
         //  Vérifie si la réponse de l'utilisateur est juste
-        public bool isReponseOk()
+        bool isReponseOK()
+=======
+        //Vérifie si la réponse de l'utilisateur est juste
+>>>>>>> Debut de la génération des bouttons
         {
             return Reponse == PropositionUtilisateur;
         }
 
+<<<<<<< HEAD
         //  Mélange le mot
-        public string MelangeMots(string unMot)
+        string MelangeMot(string unMot)
+=======
+        public string MelangeMot(string unMot)
+>>>>>>> Debut de la génération des bouttons
         {
             //  Initialisation
             char[] chars = new char[unMot.Length];
