@@ -32,7 +32,7 @@
             this.gbxQuestion = new System.Windows.Forms.GroupBox();
             this.lblQuestion = new System.Windows.Forms.Label();
             this.lblReponse = new System.Windows.Forms.Label();
-            this.Réponse = new System.Windows.Forms.GroupBox();
+            this.gbxReponse = new System.Windows.Forms.GroupBox();
             this.btnNouvellePartie = new System.Windows.Forms.Button();
             this.btnReponse = new System.Windows.Forms.Button();
             this.btnSuivant = new System.Windows.Forms.Button();
@@ -67,14 +67,14 @@
             this.lblReponse.TabIndex = 3;
             this.lblReponse.Text = "Nombre de réponse juste : 0";
             // 
-            // Réponse
+            // gbxReponse
             // 
-            this.Réponse.Location = new System.Drawing.Point(12, 264);
-            this.Réponse.Name = "Réponse";
-            this.Réponse.Size = new System.Drawing.Size(1023, 118);
-            this.Réponse.TabIndex = 2;
-            this.Réponse.TabStop = false;
-            this.Réponse.Text = "Réponse";
+            this.gbxReponse.Location = new System.Drawing.Point(12, 264);
+            this.gbxReponse.Name = "gbxReponse";
+            this.gbxReponse.Size = new System.Drawing.Size(1023, 118);
+            this.gbxReponse.TabIndex = 2;
+            this.gbxReponse.TabStop = false;
+            this.gbxReponse.Text = "Réponse";
             // 
             // btnNouvellePartie
             // 
@@ -140,7 +140,7 @@
             this.Controls.Add(this.btnReponse);
             this.Controls.Add(this.btnNouvellePartie);
             this.Controls.Add(this.lblReponse);
-            this.Controls.Add(this.Réponse);
+            this.Controls.Add(this.gbxReponse);
             this.Controls.Add(this.lblQuestion);
             this.Controls.Add(this.gbxQuestion);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -159,7 +159,7 @@
         private System.Windows.Forms.GroupBox gbxQuestion;
         private System.Windows.Forms.Label lblQuestion;
         private System.Windows.Forms.Label lblReponse;
-        private System.Windows.Forms.GroupBox Réponse;
+        private System.Windows.Forms.GroupBox gbxReponse;
         private System.Windows.Forms.Button btnNouvellePartie;
         private System.Windows.Forms.Button btnReponse;
         private System.Windows.Forms.Button btnSuivant;

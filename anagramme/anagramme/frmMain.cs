@@ -30,25 +30,36 @@ namespace anagramme
 
         public void DessineLesBoutons(string mot)
         {
+            //  Gbx Question :
             gbxQuestion.Controls.Clear();
             char[] lettres = mot.ToCharArray();
-            int x = 10;
-            Console.WriteLine("1");
+            int xQuestion = 10;
             foreach (char lettre in lettres)
             {
                 Button aButton = new Button()
                 {
                     Size = new Size(80, 80),
-                    Location = new Point(x, 25),
+                    Location = new Point(xQuestion, 25),
                     Text = lettre.ToString()
                 };
-                x += 90;
-                Console.WriteLine("2");
+                xQuestion += 90;
                 gbxQuestion.Controls.Add(aButton);
-                Console.WriteLine("Bouton added");
             }
-            Console.WriteLine("3");
 
+            //  Gbx Reponse :
+            gbxReponse.Controls.Clear();
+            int xReponse = 10;
+            foreach (char lettre in lettres)
+            {
+                Button aButton = new Button()
+                {
+                    Size = new Size(80, 80),
+                    Location = new Point(xReponse, 25),
+                    Text = "-"
+                };
+                xReponse += 90;
+                gbxReponse.Controls.Add(aButton);
+            }
         }
 
         private void btnNouvellePartie_Click(object sender, EventArgs e)
