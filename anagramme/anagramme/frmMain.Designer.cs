@@ -54,18 +54,18 @@
             this.lblQuestion.AutoSize = true;
             this.lblQuestion.Location = new System.Drawing.Point(925, 92);
             this.lblQuestion.Name = "lblQuestion";
-            this.lblQuestion.Size = new System.Drawing.Size(67, 13);
+            this.lblQuestion.Size = new System.Drawing.Size(76, 13);
             this.lblQuestion.TabIndex = 1;
-            this.lblQuestion.Text = "Question N°:";
+            this.lblQuestion.Text = "Question N°: 0";
             // 
             // lblReponse
             // 
             this.lblReponse.AutoSize = true;
             this.lblReponse.Location = new System.Drawing.Point(861, 248);
             this.lblReponse.Name = "lblReponse";
-            this.lblReponse.Size = new System.Drawing.Size(131, 13);
+            this.lblReponse.Size = new System.Drawing.Size(140, 13);
             this.lblReponse.TabIndex = 3;
-            this.lblReponse.Text = "Nombre de réponse juste :";
+            this.lblReponse.Text = "Nombre de réponse juste : 0";
             // 
             // Réponse
             // 

@@ -65,6 +65,7 @@ namespace anagramme
         {
             ChargeListeMots();
             ChoixDunMot();
+            Question = MelangeMots(Reponse);
         }
 
         //  Constructeur avec un paramètre
