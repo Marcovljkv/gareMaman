@@ -30,9 +30,10 @@ namespace anagramme
 
         public void DessineLesBoutons(string mot)
         {
+            char[] lettres = mot.ToCharArray();
+
             //  Gbx Question :
             gbxQuestion.Controls.Clear();
-            char[] lettres = mot.ToCharArray();
             int xQuestion = 10;
             foreach (char lettre in lettres)
             {
@@ -49,6 +50,7 @@ namespace anagramme
                 xReponse += 90;
             }
         }
+
 
         private void btnNouvellePartie_Click(object sender, EventArgs e)
         {
@@ -72,6 +74,7 @@ namespace anagramme
         private void btnSuivant_Click(object sender, EventArgs e)
         {
             ana.QuestionNumero++;
+            lblQuestion.Text = "Question N°: " + ana.QuestionNumero;
             ana.ChoixDunMot();
             ana.Question = ana.MelangeMots(ana.Reponse);
             DessineLesBoutons(ana.Question);
