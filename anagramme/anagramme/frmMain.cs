@@ -36,14 +36,8 @@ namespace anagramme
             int xQuestion = 10;
             foreach (char lettre in lettres)
             {
-                Button aButton = new Button()
-                {
-                    Size = new Size(80, 80),
-                    Location = new Point(xQuestion, 25),
-                    Text = lettre.ToString()
-                };
+                gbxQuestion.Controls.Add(new Button() { Size = new Size(80, 80), Location = new Point(xQuestion, 25), Text = lettre.ToString() });
                 xQuestion += 90;
-                gbxQuestion.Controls.Add(aButton);
             }
 
             //  Gbx Reponse :
@@ -51,14 +45,8 @@ namespace anagramme
             int xReponse = 10;
             foreach (char lettre in lettres)
             {
-                Button aButton = new Button()
-                {
-                    Size = new Size(80, 80),
-                    Location = new Point(xReponse, 25),
-                    Text = "-"
-                };
+                gbxReponse.Controls.Add(new Button() { Size = new Size(80, 80), Location = new Point(xReponse, 25), Text = "-" });
                 xReponse += 90;
-                gbxReponse.Controls.Add(aButton);
             }
         }
 
