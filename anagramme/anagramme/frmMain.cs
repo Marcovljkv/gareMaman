@@ -14,6 +14,9 @@ namespace anagramme
     public partial class frmMain : Form
     {
         Anagramme ana;
+        List<Button> ListeLettre = new List<Button>();
+        List<Button> btnClicke = new List<Button>();
+        int i = 0;
 
         public frmMain()
         {
@@ -35,20 +38,48 @@ namespace anagramme
             //  Gbx Question :
             gbxQuestion.Controls.Clear();
             int xQuestion = 10;
+            int cptQ = 0;
             foreach (char lettre in lettres)
             {
-                gbxQuestion.Controls.Add(new Button() { Size = new Size(80, 80), Location = new Point(xQuestion, 25), Text = lettre.ToString() });
+                Button monBtn = new Button();
+                monBtn.Tag = cptQ;
+                monBtn.Size = new Size(80, 80);
+                monBtn.Location = new Point(xQuestion, 25);
+                monBtn.Text = lettre.ToString();
+                monBtn.Click += monBtn_Click;
+
+                gbxQuestion.Controls.Add(monBtn);
+               // ListeLettre.Add(monBtn);
                 xQuestion += 90;
+                cptQ++;
             }
 
             //  Gbx Reponse :
             gbxReponse.Controls.Clear();
             int xReponse = 10;
+            
             foreach (char lettre in lettres)
             {
-                gbxReponse.Controls.Add(new Button() { Size = new Size(80, 80), Location = new Point(xReponse, 25), Text = "-" });
+                Button maLettre = new Button();
+                
+                maLettre.Size = new Size(80, 80);
+                maLettre.Location = new Point(xReponse, 25);
+                maLettre.Text = "-";
+
+                gbxReponse.Controls.Add(maLettre);
+                ListeLettre.Add(maLettre);
                 xReponse += 90;
+                
             }
+            
+        }
+
+        void monBtn_Click(object sender, EventArgs e)
+        {
+            string TagBtn = (sender as Button).Tag.ToString();
+            ListeLettre[i].Text = (sender as Button).Text;
+            (sender as Button).Enabled = false;
+            i++;
         }
 
 
