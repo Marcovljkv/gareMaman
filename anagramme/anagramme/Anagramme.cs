@@ -67,6 +67,12 @@ namespace anagramme
             ChoixDunMot();
             Question = MelangeMots(Reponse);
         }
+        public Anagramme(string mot)
+        {
+            ChargeListeMots();
+            Reponse = mot;
+            Question = MelangeMots(Reponse);
+        }
 
         //  Constructeur avec un paramètre
         //  Charge la liste des mots

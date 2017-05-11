@@ -88,6 +88,7 @@
             // 
             // btnReponse
             // 
+            this.btnReponse.Enabled = false;
             this.btnReponse.Location = new System.Drawing.Point(291, 403);
             this.btnReponse.Name = "btnReponse";
             this.btnReponse.Size = new System.Drawing.Size(186, 48);
@@ -98,6 +99,7 @@
             // 
             // btnSuivant
             // 
+            this.btnSuivant.Enabled = false;
             this.btnSuivant.Location = new System.Drawing.Point(570, 403);
             this.btnSuivant.Name = "btnSuivant";
             this.btnSuivant.Size = new System.Drawing.Size(186, 48);
@@ -108,6 +110,7 @@
             // 
             // btnAnnuler
             // 
+            this.btnAnnuler.Enabled = false;
             this.btnAnnuler.Location = new System.Drawing.Point(849, 403);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(186, 48);
