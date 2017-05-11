@@ -38,20 +38,17 @@ namespace anagramme
             //  Gbx Question :
             gbxQuestion.Controls.Clear();
             int xQuestion = 10;
-            int cptQ = 0;
             foreach (char lettre in lettres)
             {
                 Button monBtn = new Button();
-                monBtn.Tag = cptQ;
+
                 monBtn.Size = new Size(80, 80);
                 monBtn.Location = new Point(xQuestion, 25);
                 monBtn.Text = lettre.ToString();
                 monBtn.Click += monBtn_Click;
-
                 gbxQuestion.Controls.Add(monBtn);
                // ListeLettre.Add(monBtn);
                 xQuestion += 90;
-                cptQ++;
             }
 
             //  Gbx Reponse :
@@ -60,12 +57,11 @@ namespace anagramme
             
             foreach (char lettre in lettres)
             {
-                Button maLettre = new Button();
-                
+                Button maLettre = new Button();               
                 maLettre.Size = new Size(80, 80);
                 maLettre.Location = new Point(xReponse, 25);
                 maLettre.Text = "-";
-
+                maLettre.Enabled = false;
                 gbxReponse.Controls.Add(maLettre);
                 ListeLettre.Add(maLettre);
                 xReponse += 90;
@@ -76,8 +72,8 @@ namespace anagramme
 
         void monBtn_Click(object sender, EventArgs e)
         {
-            string TagBtn = (sender as Button).Tag.ToString();
             ListeLettre[i].Text = (sender as Button).Text;
+            btnClicke.Add(sender as Button);
             (sender as Button).Enabled = false;
             i++;
         }
@@ -114,6 +110,19 @@ namespace anagramme
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
 
+            if (btnClicke.Count > 0)
+            {
+                
+                i--;
+                btnClicke[i].Enabled = true;
+                ListeLettre[i].Text = "-";
+                btnClicke.RemoveAt(i);
+
+            }
+            else
+            {
+                MessageBox.Show("Vous avez retiré toutes les lettres", "Info");
+            }
         }
     }
 }
