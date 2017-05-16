@@ -70,7 +70,7 @@ namespace anagramme
         {
             ChargeListeMots();
             ChoixDunMot();
-            Question = MelangeMots(Reponse);
+            Question = MelangeMot(Reponse);
         }
         /// <summary>
         /// Constructeur
@@ -80,12 +80,12 @@ namespace anagramme
         {
             ChargeListeMots();
             Reponse = mot;
-            Question = MelangeMots(Reponse);
+            Question = MelangeMot(Reponse);
         }
 
 
         /// <summary>
-        /// Charge la liste des mots dans ListMots
+        /// Charge la liste des mots du fichier text dans ListMots
         /// </summary>
         public void ChargeListeMots()
         {
@@ -97,7 +97,7 @@ namespace anagramme
         }
 
         /// <summary>
-        /// Choisi un mot alèatoirement parmi ceux de la liste
+        /// Choisi un mot au hasard parmi ceux présent dans la liste
         /// </summary>
         public void ChoixDunMot()
         {
@@ -117,29 +117,27 @@ namespace anagramme
         /// <summary>
         /// Mélange le mot
         /// </summary>
-        /// <param name="unMot">Le mot qu'on veut mélanger</param>
+        /// <param name="unMot">Le mot que l'on veut mélanger</param>
         /// <returns>Le mot mélangé</returns>
-        public string MelangeMots(string unMot)
+        public string MelangeMot(string unMot)
         {
-            //  Initialisation
-            char[] chars = new char[unMot.Length];
-            Random rdm = new Random();
-            int index = 0;
+            //  Mot mélanger
+            string motMelanger = string.Empty;
 
-            //  Traitement
+            Random rnd = new Random();
+            int iWord = 0;
+
             while (unMot.Length > 0)
             {
-                // On choisi une lettre parmi les lettres restantes (int)
-                int next = rdm.Next(0, unMot.Length - 1);
-                //  On rajoute la lettre a notre tableau
-                chars[index] = unMot[next];
-                //  On supprime la lettre du mot originale
-                unMot = unMot.Substring(0, next) + unMot.Substring(next + 1);
+                int rndIndex = rnd.Next(0, unMot.Length - 1);
+                //  On rajoute au nouveau mot l'élément choisit au hasard
+                motMelanger += unMot[rndIndex];
+                //  On supprime la lettre déjà mélangée
+                unMot = unMot.Remove(rndIndex, 1);
 
-                ++index;
+                iWord++;
             }
-            //  Retourne le tableau converti en string
-            return new String(chars);
+            return motMelanger;
         }
     }
 }
