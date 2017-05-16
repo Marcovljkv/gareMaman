@@ -1,9 +1,10 @@
 ﻿/*
- *Ramushi Ardi
- *04.05.2017
- *Version : 1.0
- *Jeu d'anagramme, l'utilisateur doit reformer le mot dont les lettres on étées melangées.
- */
+* Auteur          :   Marco Vlajkovic
+* Projet           :   Anagramme
+* Description  :   L'utilisateur doit reformer le mot dont les lettres on étées melangées.
+* Version        :    V1.0
+* Date            :   4 mai 2017
+*/
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace anagramme
         string _question;
         int _questionNumero;
 
+        #region Getter-Setter
         //  Getter-Setter
         public List<string> ListMots
         {
@@ -59,14 +61,21 @@ namespace anagramme
             get { return _reponse; }
             set { _reponse = value; }
         }
+        #endregion
 
-        //  Constructeur
+        /// <summary>
+        /// Constructeur
+        /// </summary>
         public Anagramme()
         {
             ChargeListeMots();
             ChoixDunMot();
             Question = MelangeMots(Reponse);
         }
+        /// <summary>
+        /// Constructeur
+        /// </summary>
+        /// <param name="mot">mot qu'on veut melanger</param>
         public Anagramme(string mot)
         {
             ChargeListeMots();
@@ -74,8 +83,10 @@ namespace anagramme
             Question = MelangeMots(Reponse);
         }
 
-        //  Constructeur avec un paramètre
-        //  Charge la liste des mots
+
+        /// <summary>
+        /// Charge la liste des mots dans ListMots
+        /// </summary>
         public void ChargeListeMots()
         {
             ListMots = new List<string>();
@@ -85,20 +96,29 @@ namespace anagramme
             }
         }
 
-        //  Choisi un mot alèatoirement
+        /// <summary>
+        /// Choisi un mot alèatoirement parmi ceux de la liste
+        /// </summary>
         public void ChoixDunMot()
         {
             Random rdm = new Random();
             Reponse = ListMots[rdm.Next(0, ListMots.Count)];
         }
 
-        //  Vérifie si la réponse de l'utilisateur est juste
+        /// <summary>
+        /// Vérifie si la réponse de l'utilisateur est juste
+        /// </summary>
+        /// <returns>True -> reponse juste</returns>
         public bool isReponseOk()
         {
             return Reponse == PropositionUtilisateur;
         }
 
-        //  Mélange le mot
+        /// <summary>
+        /// Mélange le mot
+        /// </summary>
+        /// <param name="unMot">Le mot qu'on veut mélanger</param>
+        /// <returns>Le mot mélangé</returns>
         public string MelangeMots(string unMot)
         {
             //  Initialisation

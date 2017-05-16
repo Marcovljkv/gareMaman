@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+* Auteur          :   Marco Vlajkovic
+* Projet           :   Anagramme
+* Description  :   L'utilisateur doit reformer le mot dont les lettres on étées melangées.
+* Version        :    V1.0
+* Date            :   4 mai 2017
+*/
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,9 +20,9 @@ namespace anagramme
 {
     public partial class frmMain : Form
     {
-        //Déclaration des variables
+        //  Déclaration des variables
         Anagramme ana;
-        List<Button> ListeLettre = new List<Button>();
+        List<Button> ListeBtnReponse = new List<Button>();
         List<Button> btnClicke = new List<Button>();
         int nbLettreMise = 0;
 
@@ -26,7 +33,7 @@ namespace anagramme
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            //Met le mot "anagramme" comme premier mot
+            //  Met le mot "anagramme" comme premier mot
             ana = new Anagramme("ANAGRAMME");
             ana.NombreReponseJuste = 0;
             ana.QuestionNumero = 1;
@@ -34,62 +41,72 @@ namespace anagramme
             
         }
 
+        /// <summary>
+        /// Dessine les boutons (les lettres mélanger + réponse utilisateur)
+        /// </summary>
+        /// <param name="mot"></param>
         public void DessineLesBoutons(string mot)
         {
-            //Vider les listes lors d'un nouveau mot
-            ListeLettre.Clear();
+            //  Vider les listes lors d'un nouveau mot
+            ListeBtnReponse.Clear();
             btnClicke.Clear();
             nbLettreMise = 0;
 
-
-
             char[] lettres = mot.ToCharArray();
-            //Générer les boutons par rapport au nombre de lettres dans le mot 
+            
+            //  Vide les groupes box
             gbxQuestion.Controls.Clear();
-
             gbxReponse.Controls.Clear();
-            int x = 10;
+
+            //  Decalage en x des boutons
+             int x = 10;
+
+            //  Générer les boutons par rapport au nombre de lettres dans le mot 
             foreach (char lettre in lettres)
             {
-                Button monBtn = new Button();
+                Button monBtnMelanger = new Button();   
+                Button monBtnReponse = new Button();
 
-                monBtn.Size = new Size(80, 80);
-                monBtn.Location = new Point(x, 25);
-                monBtn.Text = lettre.ToString();
-                monBtn.Click += monBtn_Click;
-                monBtn.ForeColor = Color.Blue;
-                monBtn.Font = new Font(FontFamily.GenericSansSerif, 18, FontStyle.Bold);
-                gbxQuestion.Controls.Add(monBtn);
-                
+                monBtnMelanger.Size = new Size(80, 80);
+                monBtnMelanger.Location = new Point(x, 25);
+                monBtnMelanger.Text = lettre.ToString();
+                monBtnMelanger.Click += monBtnMelanger_Click;
+                monBtnMelanger.ForeColor = Color.Blue;
+                monBtnMelanger.Font = new Font(FontFamily.GenericSansSerif, 18, FontStyle.Bold);
+                gbxQuestion.Controls.Add(monBtnMelanger);
 
-                Button maLettre = new Button();
-                maLettre.Size = new Size(80, 80);
-                maLettre.Location = new Point(x, 25);
-                maLettre.Text = "-";
-                maLettre.Enabled = false;
-                maLettre.Font = new Font(FontFamily.GenericSansSerif, 18, FontStyle.Bold); 
-                gbxReponse.Controls.Add(maLettre);
-                ListeLettre.Add(maLettre);
+                monBtnReponse.Size = new Size(80, 80);
+                monBtnReponse.Location = new Point(x, 25);
+                monBtnReponse.Text = "-";
+                monBtnReponse.Enabled = false;
+                monBtnReponse.Font = new Font(FontFamily.GenericSansSerif, 18, FontStyle.Bold); 
+                gbxReponse.Controls.Add(monBtnReponse);
+                ListeBtnReponse.Add(monBtnReponse);
                 x += 90;
             }
            
         }
 
-        void monBtn_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Insere la lettre sur laquel on a cliquer dans la liste du bas (la réponse de l'utilisateur)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void monBtnMelanger_Click(object sender, EventArgs e)
         {
 
             btnAnnuler.Enabled = true;
-            //Met le texte du bouton cliqué dans le bouton de reponse 
-            ListeLettre[nbLettreMise].Text = (sender as Button).Text;
+            //  Met le texte du bouton cliqué dans le bouton de reponse 
+            ListeBtnReponse[nbLettreMise].Text = (sender as Button).Text;
             btnClicke.Add(sender as Button);
             (sender as Button).Enabled = false;
             nbLettreMise++;
 
-            //Vérifie si c'est le bon mot 
+            //  Vérifie si c'est le bon mot 
             if (ana.Reponse.Length == nbLettreMise)
             {
                 string solution = "";
-                foreach (Button reponse in ListeLettre)
+                foreach (Button reponse in ListeBtnReponse)
                 {
                     if (reponse.Text != "-")
                         solution += reponse.Text;
@@ -102,16 +119,19 @@ namespace anagramme
                     btnReponse.Enabled = false;
                     lblReponse.Text = "Nombre de réponse juste : " + ana.NombreReponseJuste;
                     MessageBox.Show("Vous avez trouvé le mot", "Gagné");
-                    
                 }
                 else
                 {
-                    MessageBox.Show("Faux", "Info");
+                    MessageBox.Show("La réponse que vous avez donné est incorrect !", "Information");
                 }
             }
         }
 
-
+        /// <summary>
+        /// Renitialise les scores et demmare une nouvelle partie
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNouvellePartie_Click(object sender, EventArgs e)
         {
             
@@ -121,53 +141,69 @@ namespace anagramme
             ana.NombreReponseJuste = 0;
             ana.QuestionNumero = 1;
 
-            //Remet les labels à 0
-            lblQuestion.Text = "Question N°: " + ana.QuestionNumero;
+            //  Remet les labels à 0
+            lblQuestion.Text = "Question N° : " + ana.QuestionNumero;
             lblReponse.Text = "Nombre de réponse juste : " + ana.NombreReponseJuste;
 
-            //Tire un nouveau  mot
+            //  Tire un nouveau mot
             ana.ChoixDunMot();
             ana.Question = ana.MelangeMots(ana.Reponse);
             DessineLesBoutons(ana.Question);
 
         }
 
+        /// <summary>
+        /// Affiche la réponse
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnReponse_Click(object sender, EventArgs e)
         {
-            //Affiche la réponse
+            //  Affiche la réponse
             for (int j = 0; j < ana.Reponse.Length; j++)
             {
-                ListeLettre[j].Text = ana.Reponse[j].ToString();
+                ListeBtnReponse[j].Text = ana.Reponse[j].ToString();
             }
+            //  Desactive les controls pour l'empecher de continuer sur ce mot
             btnReponse.Enabled = false;
             btnAnnuler.Enabled = false;
             
         }
 
+        /// <summary>
+        /// Passe à la question suivante
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSuivant_Click(object sender, EventArgs e)
         {
-            //Fait passer à la question suivante
+            //  Fait passer à la question suivante
             btnReponse.Enabled = true;
             btnAnnuler.Enabled = true;
 
-            //Incrémente le nombre de question
+            //  Incrémente le nombre de question
             ana.QuestionNumero++;
             lblQuestion.Text = "Question N°: " + ana.QuestionNumero;
 
-            //Tire un nouveau mot
+            //  Tire un nouveau mot
             ana.ChoixDunMot();
             ana.Question = ana.MelangeMots(ana.Reponse);
             DessineLesBoutons(ana.Question);
         }
 
+        /// <summary>
+        /// Annule la derniere lettre inseré
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
-            //Vérifie si l'utilisateur peut annuler son dernier click
+            //  Vérifie si l'utilisateur peut annuler son dernier click
             if (nbLettreMise != 0)
             {
                 nbLettreMise--;
                 btnClicke[nbLettreMise].Enabled = true;
-                ListeLettre[nbLettreMise].Text = "-";
+                ListeBtnReponse[nbLettreMise].Text = "-";
                 btnClicke.RemoveAt(nbLettreMise);
                 if (nbLettreMise == 0)
                 {
