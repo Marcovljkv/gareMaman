@@ -7,9 +7,6 @@
 */
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
 namespace anagramme
@@ -72,6 +69,7 @@ namespace anagramme
             ChoixDunMot();
             Question = MelangeMot(Reponse);
         }
+
         /// <summary>
         /// Constructeur
         /// </summary>
@@ -82,7 +80,6 @@ namespace anagramme
             Reponse = mot;
             Question = MelangeMot(Reponse);
         }
-
 
         /// <summary>
         /// Charge la liste des mots du fichier text dans ListMots

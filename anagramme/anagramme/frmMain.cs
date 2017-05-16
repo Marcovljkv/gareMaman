@@ -1,20 +1,14 @@
 ﻿/*
-* Auteur            :   Marco Vlajkovic
-* Projet            :   Anagramme
-* Description   :   L'utilisateur doit reformer le mot dont les lettres on étées melangées.
-* Version           :    V1.0
-* Date              :   4 mai 2017
+* Auteur       :   Marco Vlajkovic
+* Projet       :   Anagramme
+* Description  :   L'utilisateur doit reformer le mot dont les lettres on étées melangées.
+* Version      :    V1.0
+* Date         :   4 mai 2017
 */
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 
 namespace anagramme
 {
