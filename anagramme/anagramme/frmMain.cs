@@ -23,7 +23,7 @@ namespace anagramme
         //  Déclaration des variables
         Anagramme ana;
         List<Button> ListeBtnReponse = new List<Button>();
-        List<Button> btnClicke = new List<Button>();
+        List<Button> ListebtnClique = new List<Button>();
         int nbLettreMise = 0;
 
         public frmMain()
@@ -37,7 +37,7 @@ namespace anagramme
             ana = new Anagramme("ANAGRAMME");
             ana.NombreReponseJuste = 0;
             ana.QuestionNumero = 1;
-            DessineLesBoutons(ana.MelangeMots("ANAGRAMME"));
+            DessineLesBoutons(ana.MelangeMot("ANAGRAMME"));
             
         }
 
@@ -49,7 +49,7 @@ namespace anagramme
         {
             //  Vider les listes lors d'un nouveau mot
             ListeBtnReponse.Clear();
-            btnClicke.Clear();
+            ListebtnClique.Clear();
             nbLettreMise = 0;
 
             char[] lettres = mot.ToCharArray();
@@ -98,7 +98,7 @@ namespace anagramme
             btnAnnuler.Enabled = true;
             //  Met le texte du bouton cliqué dans le bouton de reponse 
             ListeBtnReponse[nbLettreMise].Text = (sender as Button).Text;
-            btnClicke.Add(sender as Button);
+            ListebtnClique.Add(sender as Button);
             (sender as Button).Enabled = false;
             nbLettreMise++;
 
@@ -147,7 +147,7 @@ namespace anagramme
 
             //  Tire un nouveau mot
             ana.ChoixDunMot();
-            ana.Question = ana.MelangeMots(ana.Reponse);
+            ana.Question = ana.MelangeMot(ana.Reponse);
             DessineLesBoutons(ana.Question);
 
         }
@@ -187,7 +187,7 @@ namespace anagramme
 
             //  Tire un nouveau mot
             ana.ChoixDunMot();
-            ana.Question = ana.MelangeMots(ana.Reponse);
+            ana.Question = ana.MelangeMot(ana.Reponse);
             DessineLesBoutons(ana.Question);
         }
 
@@ -202,9 +202,9 @@ namespace anagramme
             if (nbLettreMise != 0)
             {
                 nbLettreMise--;
-                btnClicke[nbLettreMise].Enabled = true;
+                ListebtnClique[nbLettreMise].Enabled = true;
                 ListeBtnReponse[nbLettreMise].Text = "-";
-                btnClicke.RemoveAt(nbLettreMise);
+                ListebtnClique.RemoveAt(nbLettreMise);
                 if (nbLettreMise == 0)
                 {
                     btnAnnuler.Enabled = false;
