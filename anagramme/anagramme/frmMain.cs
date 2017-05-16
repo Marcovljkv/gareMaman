@@ -1,9 +1,9 @@
 ﻿/*
-* Auteur          :   Marco Vlajkovic
-* Projet           :   Anagramme
-* Description  :   L'utilisateur doit reformer le mot dont les lettres on étées melangées.
-* Version        :    V1.0
-* Date            :   4 mai 2017
+* Auteur            :   Marco Vlajkovic
+* Projet            :   Anagramme
+* Description   :   L'utilisateur doit reformer le mot dont les lettres on étées melangées.
+* Version           :    V1.0
+* Date              :   4 mai 2017
 */
 using System;
 using System.Collections.Generic;
@@ -38,7 +38,6 @@ namespace anagramme
             ana.NombreReponseJuste = 0;
             ana.QuestionNumero = 1;
             DessineLesBoutons(ana.MelangeMot("ANAGRAMME"));
-            
         }
 
         /// <summary>
@@ -51,40 +50,39 @@ namespace anagramme
             ListeBtnReponse.Clear();
             ListebtnClique.Clear();
             nbLettreMise = 0;
-
             char[] lettres = mot.ToCharArray();
-            
+            Size sizeBtn = new Size(80, 80); ;
+            Font fontBtn = new Font(FontFamily.GenericSansSerif, 18, FontStyle.Bold);
+
             //  Vide les groupes box
             gbxQuestion.Controls.Clear();
             gbxReponse.Controls.Clear();
 
-            //  Decalage en x des boutons
-             int x = 10;
+            int poseXBtn = 10;
 
             //  Générer les boutons par rapport au nombre de lettres dans le mot 
             foreach (char lettre in lettres)
             {
-                Button monBtnMelanger = new Button();   
+                Button monBtnMelanger = new Button();
                 Button monBtnReponse = new Button();
 
-                monBtnMelanger.Size = new Size(80, 80);
-                monBtnMelanger.Location = new Point(x, 25);
+                monBtnMelanger.Size = sizeBtn;
+                monBtnMelanger.Location = new Point(poseXBtn, 25);
                 monBtnMelanger.Text = lettre.ToString();
                 monBtnMelanger.Click += monBtnMelanger_Click;
                 monBtnMelanger.ForeColor = Color.Blue;
-                monBtnMelanger.Font = new Font(FontFamily.GenericSansSerif, 18, FontStyle.Bold);
+                monBtnMelanger.Font = fontBtn;
                 gbxQuestion.Controls.Add(monBtnMelanger);
 
-                monBtnReponse.Size = new Size(80, 80);
-                monBtnReponse.Location = new Point(x, 25);
+                monBtnReponse.Size = sizeBtn;
+                monBtnReponse.Location = new Point(poseXBtn, 25);
                 monBtnReponse.Text = "-";
                 monBtnReponse.Enabled = false;
-                monBtnReponse.Font = new Font(FontFamily.GenericSansSerif, 18, FontStyle.Bold); 
+                monBtnReponse.Font = fontBtn;
                 gbxReponse.Controls.Add(monBtnReponse);
                 ListeBtnReponse.Add(monBtnReponse);
-                x += 90;
+                poseXBtn += 90;
             }
-           
         }
 
         /// <summary>
@@ -94,7 +92,6 @@ namespace anagramme
         /// <param name="e"></param>
         void monBtnMelanger_Click(object sender, EventArgs e)
         {
-
             btnAnnuler.Enabled = true;
             //  Met le texte du bouton cliqué dans le bouton de reponse 
             ListeBtnReponse[nbLettreMise].Text = (sender as Button).Text;
@@ -105,7 +102,7 @@ namespace anagramme
             //  Vérifie si c'est le bon mot 
             if (ana.Reponse.Length == nbLettreMise)
             {
-                string solution = "";
+                string solution = String.Empty;
                 foreach (Button reponse in ListeBtnReponse)
                 {
                     if (reponse.Text != "-")
@@ -116,7 +113,7 @@ namespace anagramme
                 {
                     ana.NombreReponseJuste++;
                     btnAnnuler.Enabled = false;
-                    btnReponse.Enabled = false;
+                    btnAfficheReponse.Enabled = false;
                     lblReponse.Text = "Nombre de réponse juste : " + ana.NombreReponseJuste;
                     MessageBox.Show("Vous avez trouvé le mot", "Gagné");
                 }
@@ -134,9 +131,8 @@ namespace anagramme
         /// <param name="e"></param>
         private void btnNouvellePartie_Click(object sender, EventArgs e)
         {
-            
             btnAnnuler.Enabled = false;
-            btnReponse.Enabled = true;
+            btnAfficheReponse.Enabled = true;
             btnSuivant.Enabled = true;
             ana.NombreReponseJuste = 0;
             ana.QuestionNumero = 1;
@@ -149,7 +145,6 @@ namespace anagramme
             ana.ChoixDunMot();
             ana.Question = ana.MelangeMot(ana.Reponse);
             DessineLesBoutons(ana.Question);
-
         }
 
         /// <summary>
@@ -165,9 +160,8 @@ namespace anagramme
                 ListeBtnReponse[j].Text = ana.Reponse[j].ToString();
             }
             //  Desactive les controls pour l'empecher de continuer sur ce mot
-            btnReponse.Enabled = false;
+            btnAfficheReponse.Enabled = false;
             btnAnnuler.Enabled = false;
-            
         }
 
         /// <summary>
@@ -178,12 +172,12 @@ namespace anagramme
         private void btnSuivant_Click(object sender, EventArgs e)
         {
             //  Fait passer à la question suivante
-            btnReponse.Enabled = true;
+            btnAfficheReponse.Enabled = true;
             btnAnnuler.Enabled = true;
 
             //  Incrémente le nombre de question
             ana.QuestionNumero++;
-            lblQuestion.Text = "Question N°: " + ana.QuestionNumero;
+            lblQuestion.Text = "Question N° : " + ana.QuestionNumero;
 
             //  Tire un nouveau mot
             ana.ChoixDunMot();
@@ -209,7 +203,6 @@ namespace anagramme
                 {
                     btnAnnuler.Enabled = false;
                 }
-
             }
         }
     }

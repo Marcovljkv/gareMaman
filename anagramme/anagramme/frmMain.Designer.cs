@@ -34,7 +34,7 @@
             this.lblReponse = new System.Windows.Forms.Label();
             this.gbxReponse = new System.Windows.Forms.GroupBox();
             this.btnNouvellePartie = new System.Windows.Forms.Button();
-            this.btnReponse = new System.Windows.Forms.Button();
+            this.btnAfficheReponse = new System.Windows.Forms.Button();
             this.btnSuivant = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.lblInfo = new System.Windows.Forms.Label();
@@ -86,16 +86,16 @@
             this.btnNouvellePartie.UseVisualStyleBackColor = true;
             this.btnNouvellePartie.Click += new System.EventHandler(this.btnNouvellePartie_Click);
             // 
-            // btnReponse
+            // btnAfficheReponse
             // 
-            this.btnReponse.Enabled = false;
-            this.btnReponse.Location = new System.Drawing.Point(291, 403);
-            this.btnReponse.Name = "btnReponse";
-            this.btnReponse.Size = new System.Drawing.Size(186, 48);
-            this.btnReponse.TabIndex = 5;
-            this.btnReponse.Text = "Afficher la réponse";
-            this.btnReponse.UseVisualStyleBackColor = true;
-            this.btnReponse.Click += new System.EventHandler(this.btnReponse_Click);
+            this.btnAfficheReponse.Enabled = false;
+            this.btnAfficheReponse.Location = new System.Drawing.Point(291, 403);
+            this.btnAfficheReponse.Name = "btnAfficheReponse";
+            this.btnAfficheReponse.Size = new System.Drawing.Size(186, 48);
+            this.btnAfficheReponse.TabIndex = 5;
+            this.btnAfficheReponse.Text = "Afficher la réponse";
+            this.btnAfficheReponse.UseVisualStyleBackColor = true;
+            this.btnAfficheReponse.Click += new System.EventHandler(this.btnReponse_Click);
             // 
             // btnSuivant
             // 
@@ -140,7 +140,7 @@
             this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnSuivant);
-            this.Controls.Add(this.btnReponse);
+            this.Controls.Add(this.btnAfficheReponse);
             this.Controls.Add(this.btnNouvellePartie);
             this.Controls.Add(this.lblReponse);
             this.Controls.Add(this.gbxReponse);
@@ -164,7 +164,7 @@
         private System.Windows.Forms.Label lblReponse;
         private System.Windows.Forms.GroupBox gbxReponse;
         private System.Windows.Forms.Button btnNouvellePartie;
-        private System.Windows.Forms.Button btnReponse;
+        private System.Windows.Forms.Button btnAfficheReponse;
         private System.Windows.Forms.Button btnSuivant;
         private System.Windows.Forms.Button btnAnnuler;
         private System.Windows.Forms.Label lblInfo;
