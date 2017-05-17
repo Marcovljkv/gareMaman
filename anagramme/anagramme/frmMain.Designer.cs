@@ -34,7 +34,7 @@
             this.lblReponse = new System.Windows.Forms.Label();
             this.gbxReponse = new System.Windows.Forms.GroupBox();
             this.btnNouvellePartie = new System.Windows.Forms.Button();
-            this.btnAfficheReponse = new System.Windows.Forms.Button();
+            this.btnAfficherReponse = new System.Windows.Forms.Button();
             this.btnSuivant = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.lblInfo = new System.Windows.Forms.Label();
@@ -78,6 +78,7 @@
             // 
             // btnNouvellePartie
             // 
+            this.btnNouvellePartie.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNouvellePartie.Location = new System.Drawing.Point(12, 403);
             this.btnNouvellePartie.Name = "btnNouvellePartie";
             this.btnNouvellePartie.Size = new System.Drawing.Size(186, 48);
@@ -86,20 +87,22 @@
             this.btnNouvellePartie.UseVisualStyleBackColor = true;
             this.btnNouvellePartie.Click += new System.EventHandler(this.btnNouvellePartie_Click);
             // 
-            // btnAfficheReponse
+            // btnAfficherReponse
             // 
-            this.btnAfficheReponse.Enabled = false;
-            this.btnAfficheReponse.Location = new System.Drawing.Point(291, 403);
-            this.btnAfficheReponse.Name = "btnAfficheReponse";
-            this.btnAfficheReponse.Size = new System.Drawing.Size(186, 48);
-            this.btnAfficheReponse.TabIndex = 5;
-            this.btnAfficheReponse.Text = "Afficher la réponse";
-            this.btnAfficheReponse.UseVisualStyleBackColor = true;
-            this.btnAfficheReponse.Click += new System.EventHandler(this.btnReponse_Click);
+            this.btnAfficherReponse.Enabled = false;
+            this.btnAfficherReponse.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAfficherReponse.Location = new System.Drawing.Point(291, 403);
+            this.btnAfficherReponse.Name = "btnAfficherReponse";
+            this.btnAfficherReponse.Size = new System.Drawing.Size(186, 48);
+            this.btnAfficherReponse.TabIndex = 5;
+            this.btnAfficherReponse.Text = "Afficher la réponse";
+            this.btnAfficherReponse.UseVisualStyleBackColor = true;
+            this.btnAfficherReponse.Click += new System.EventHandler(this.btnReponse_Click);
             // 
             // btnSuivant
             // 
             this.btnSuivant.Enabled = false;
+            this.btnSuivant.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSuivant.Location = new System.Drawing.Point(570, 403);
             this.btnSuivant.Name = "btnSuivant";
             this.btnSuivant.Size = new System.Drawing.Size(186, 48);
@@ -111,6 +114,7 @@
             // btnAnnuler
             // 
             this.btnAnnuler.Enabled = false;
+            this.btnAnnuler.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnnuler.Location = new System.Drawing.Point(849, 403);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(186, 48);
@@ -121,9 +125,9 @@
             // 
             // lblInfo
             // 
-            this.lblInfo.BackColor = System.Drawing.Color.Black;
-            this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfo.ForeColor = System.Drawing.Color.White;
+            this.lblInfo.BackColor = System.Drawing.Color.Transparent;
+            this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.ForeColor = System.Drawing.Color.Black;
             this.lblInfo.Location = new System.Drawing.Point(12, 31);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(1023, 35);
@@ -140,7 +144,7 @@
             this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnSuivant);
-            this.Controls.Add(this.btnAfficheReponse);
+            this.Controls.Add(this.btnAfficherReponse);
             this.Controls.Add(this.btnNouvellePartie);
             this.Controls.Add(this.lblReponse);
             this.Controls.Add(this.gbxReponse);
@@ -164,7 +168,7 @@
         private System.Windows.Forms.Label lblReponse;
         private System.Windows.Forms.GroupBox gbxReponse;
         private System.Windows.Forms.Button btnNouvellePartie;
-        private System.Windows.Forms.Button btnAfficheReponse;
+        private System.Windows.Forms.Button btnAfficherReponse;
         private System.Windows.Forms.Button btnSuivant;
         private System.Windows.Forms.Button btnAnnuler;
         private System.Windows.Forms.Label lblInfo;
